@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tummala Finance | Premium Wealth Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <nav class="glass-nav animate-fade-down">
+        <div class="nav-content">
+            <h1 class="logo">Tummala<span>Wealth</span></h1>
+            <div class="nav-links">
+                <button class="btn-primary" id="loginBtn">
+                    <span class="btn-text">Client Portal</span>
+                    <i class="fa-solid fa-arrow-right btn-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text animate-up" style="animation-delay: 0.2s;">
+                <div class="badge">EST. 1960 • KRISHNA DISTRICT</div>
+                <h1 class="hero-title">Elevating Your <br><span class="text-gradient">Financial Legacy</span></h1>
+                <p class="hero-subtitle">Experience the pinnacle of discrete, secure gold liquidity and private wealth management.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary large" id="applyHeroBtn">
+                        Initiate Request
+                    </button>
+                    <a href="#market" class="btn-secondary large">View Live Markets</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual animate-up" style="animation-delay: 0.4s;">
+                <div class="glass-card showcase-card">
+                    <div class="card-top">
+                        <i class="fa-solid fa-vault showcase-icon"></i>
+                        <span class="status-indicator">Secure Vault Active</span>
+                    </div>
+                    <h3>Immediate Liquidity</h3>
+                    <p>Unlock the value of your assets with our ultra-low interest gold finance solutions, approved in minutes.</p>
+                    <div class="showcase-stats">
+                        <div class="s-stat"><span>Disbursed</span><strong>₹20Cr+</strong></div>
+                        <div class="s-stat"><span>Clients</span><strong>2,000+</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bento-section" id="market">
+        <div class="section-heading animate-up">
+            <h2 class="title">Market Intelligence</h2>
+            <p>Real-time analytics and calculation tools</p>
+        </div>
+        
+        <div class="bento-grid">
+            <div class="bento-card col-span-2 glass-card animate-up">
+                <div class="card-header">
+                    <h3>Live Spot Prices</h3>
+                    <div class="live-pulse"><span></span> Live</div>
+                </div>
+                <div class="rates-container">
+                    <div class="rate-item">
+                        <span class="r-label">24K Bullion</span>
+                        <span class="r-val">₹7,150 <span class="r-unit">/g</span></span>
+                        <div class="r-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +1.2%</div>
+                    </div>
+                    <div class="rate-item">
+                        <span class="r-label">22K Standard</span>
+                        <span class="r-val">₹6,550 <span class="r-unit">/g</span></span>
+                        <div class="r-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +0.8%</div>
+                    </div>
+                    <div class="rate-item">
+                        <span class="r-label">999 Silver</span>
+                        <span class="r-val">₹92 <span class="r-unit">/g</span></span>
+                        <div class="r-trend down"><i class="fa-solid fa-arrow-trend-down"></i> -0.4%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-card col-span-2 glass-card animate-up" style="animation-delay: 0.2s;">
+                <div class="card-header">
+                    <h3>Liability Estimator</h3>
+                    <i class="fa-solid fa-calculator text-muted"></i>
+                </div>
+                <div class="calculator-ui">
+                    <div class="calc-top">
+                        <span class="calc-label">Principal Amount</span>
+                        <span class="calc-value" id="principalDisplay">₹1,00,000</span>
+                    </div>
+                    <input type="range" id="loanAmount" min="10000" max="1000000" step="10000" value="100000" class="modern-slider">
+                    
+                    <div class="calc-result">
+                        <div class="res-label">Est. Monthly EMI</div>
+                        <div class="res-value" id="emiValue">₹ 8,792</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bento-card col-span-4 glass-card map-card animate-up" style="animation-delay: 0.4s;">
+                <div class="map-info">
+                    <h3>The Main Vault</h3>
+                    <p class="address-text">Tummala Finance Building, Main Road<br>Hanuman Junction, AP - 521105</p>
+                    <div class="hours">
+                        <i class="fa-regular fa-clock"></i> Mon-Sat: 09:00 - 19:00
+                    </div>
+                </div>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15291.602167123985!2d80.9785311!3d16.6669925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a36149a46a6f6df%3A0xc07ceecb38b43823!2sHanuman%20Junction%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bento-section">
+        <div class="section-heading animate-up">
+            <h2 class="title">Board of Directors</h2>
+            <p>Generations of trusted financial stewardship</p>
+        </div>
+        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="director-card glass-card animate-up">
+                <div class="d-avatar"><i class="fa-solid fa-crown"></i></div>
+                <h3>Tummala Narayana Rao</h3>
+                <p>Founder & Chairman</p>
+                <a href="https://wa.me/918317625357" target="_blank" class="contact-link">Connect securely <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="director-card glass-card animate-up" style="animation-delay: 0.2s;">
+                <div class="d-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                <h3>Tummala Yogesh</h3>
+                <p>Managing Director</p>
+                <a href="https://wa.me/918317625357" target="_blank" class="contact-link">Connect securely <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="director-card glass-card animate-up" style="animation-delay: 0.4s;">
+                <div class="d-avatar"><i class="fa-solid fa-gem"></i></div>
+                <h3>Tummala Ganesh</h3>
+                <p>Director of Finance</p>
+                <a href="https://wa.me/919398843123" target="_blank" class="contact-link">Connect securely <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/918317625357?text=Hello" target="_blank" class="pro-bot">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- AUTH MODAL -->
+    <div id="authModal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="close-btn" id="closeAuth"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="modal-header">
+                <i class="fa-solid fa-shield-halved auth-icon"></i>
+                <h2>Secure Portal</h2>
+                <p>Access your private vault</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button id="tabLogin" class="tab-btn active">Authenticate</button>
+                <button id="tabSignup" class="tab-btn">Enroll</button>
+            </div>
+            
+            <div id="loginForm" class="form-container">
+                <div class="input-group">
+                    <label>WhatsApp Number</label>
+                    <div class="input-wrapper">
+                        <i class="fa-brands fa-whatsapp input-icon"></i>
+                        <input type="text" id="loginPhone" placeholder="Enter your registered number">
+                    </div>
+                </div>
+                <button class="btn-primary full-width" id="loginRequestOtpBtn">Request Access Key</button>
+            </div>
+
+            <div id="signupForm" class="form-container" style="display:none;">
+                <div class="input-grid">
+                    <div class="input-group full">
+                        <label>Full Legal Name</label>
+                        <input type="text" id="regName" placeholder="As per government ID">
+                    </div>
+                    <div class="input-group">
+                        <label>Age</label>
+                        <input type="number" id="regAge" placeholder="Years">
+                    </div>
+                    <div class="input-group">
+                        <label>WhatsApp No.</label>
+                        <input type="text" id="signupPhone" placeholder="10-digit number">
+                    </div>
+                    <div class="input-group full">
+                        <label>Residential Address</label>
+                        <input type="text" id="regAddress" placeholder="Street, City, State">
+                    </div>
+                    <div class="input-group full">
+                        <label>Pin Code</label>
+                        <input type="text" id="regPin" placeholder="6-digit postal code">
+                    </div>
+                </div>
+                <button class="btn-primary full-width" id="signupRequestOtpBtn" style="margin-top: 15px;">Verify & Enroll</button>
+            </div>
+
+            <div id="otpSection" class="form-container" style="display:none;">
+                <div class="otp-instruction">
+                    <i class="fa-solid fa-key"></i>
+                    <p id="otpMessage">We sent a secure key via WhatsApp</p>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="authOtp" class="otp-input" placeholder="------" maxlength="6" style="text-align: center; letter-spacing: 10px; font-size: 1.5rem; font-weight: bold;">
+                </div>
+                <button class="btn-primary full-width" id="verifyOtpBtn">Authorize Device</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOAN MODAL -->
+    <div id="loanModal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="close-btn" id="closeLoan"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="modal-header">
+                <i class="fa-solid fa-file-signature auth-icon"></i>
+                <h2>Liquidity Request</h2>
+                <p>Secure funding against your assets</p>
+            </div>
+
+            <div class="form-container">
+                <div class="input-group">
+                    <label>Required Capital (₹)</label>
+                    <div class="input-wrapper">
+                        <span class="currency-symbol">₹</span>
+                        <input type="number" id="loanAmtInput" placeholder="e.g. 500000" style="padding-left: 40px;">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Asset Class</label>
+                    <div class="select-wrapper">
+                        <select id="loanPurpose">
+                            <option value="Gold Loan">Physical Gold Bullion / Jewelry</option>
+                            <option value="Personal Loan">Unsecured Personal Credit</option>
+                            <option value="Business Loan">Business / Commercial Capital</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down select-icon"></i>
+                    </div>
+                </div>
+                
+                <button class="btn-primary full-width" id="submitLoanFinal" style="margin-top:20px;">Submit Secure Request</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const loanSlider = document.getElementById('loanAmount');
+        const principalDisplay = document.getElementById('principalDisplay');
+        if(loanSlider) {
+            loanSlider.addEventListener('input', (e) => {
+                principalDisplay.innerText = `₹${parseInt(e.target.value).toLocaleString('en-IN')}`;
+            });
+        }
+    </script>
+</body>
+</html>

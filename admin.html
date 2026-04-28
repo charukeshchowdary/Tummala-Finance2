@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Director Vault | Tummala Finance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <nav class="glass-nav animate-fade-down">
+        <div class="nav-content">
+            <h1 class="logo">Director<span>Vault</span></h1>
+            <div class="nav-links" style="display: flex; gap: 12px;">
+                <button class="btn-secondary" onclick="window.location.href='index.html'">
+                    <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Exit Vault
+                </button>
+                <button class="btn-primary" id="logoutAdminBtn">
+                    Terminate Session <i class="fa-solid fa-power-off btn-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-layout animate-up" style="animation-delay: 0.2s;">
+        <div class="admin-header">
+            <div>
+                <h2 class="admin-title">Active Portfolios</h2>
+                <p class="admin-subtitle">Secure review of pending liquidity requests</p>
+            </div>
+            <div class="stat-badge">
+                <i class="fa-solid fa-file-invoice"></i> Total Requests: <span id="totalCount" style="color: #fff; margin-left: 4px;">0</span>
+            </div>
+        </div>
+
+        <div id="applicationsGrid" class="admin-grid">
+            <p style="color: var(--text-secondary); font-style: italic;">Decrypting secure ledgers...</p>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
