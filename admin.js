@@ -2,6 +2,11 @@ const API_URL = '';
 
 // 1. Security Check
 window.onload = () => {
+    // Hide Loader after animation
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 2500);
+
     const session = localStorage.getItem('tummala_session');
     if (!session) {
         window.location.href = 'index.html';
@@ -100,3 +105,71 @@ window.updateStatus = async (id) => {
         }
     } catch (err) { alert("Server connection failed."); }
 };
+
+// ==========================================
+// 5. ELEGANT CURSOR & ANIMATIONS
+// ==========================================
+
+// Remove any existing cursor elements to avoid duplicates
+document.querySelectorAll('.cursor-dot, .cursor-echo, .cursor-ring').forEach(e => e.remove());
+
+const dot = document.createElement('div');
+dot.className = 'cursor-dot';
+document.body.appendChild(dot);
+
+const ring = document.createElement('div');
+ring.className = 'cursor-ring';
+document.body.appendChild(ring);
+
+let mx = window.innerWidth/2, my = window.innerHeight/2;
+let rx = window.innerWidth/2, ry = window.innerHeight/2;
+
+document.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.left = `${mx}px`;
+    dot.style.top = `${my}px`;
+});
+
+function animateCursor() {
+    rx += (mx - rx) / 6;
+    ry += (my - ry) / 6;
+    
+    ring.style.left = `${rx}px`;
+    ring.style.top = `${ry}px`;
+    
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+const addCursorHover = () => {
+    const hoverElements = document.querySelectorAll('a, button, input, select, .app-card, .close-btn, .tab-btn');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            ring.classList.add('hover');
+            dot.classList.add('hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            ring.classList.remove('hover');
+            dot.classList.remove('hover');
+        });
+    });
+};
+setTimeout(addCursorHover, 1000);
+
+const coinContainer = document.getElementById('coin-container');
+if(coinContainer) {
+    const coinCount = 25;
+    for (let i = 0; i < coinCount; i++) {
+        let coin = document.createElement('div');
+        coin.className = 'falling-coin';
+        coin.style.left = `${Math.random() * 100}vw`;
+        coin.style.animationDuration = `${6 + Math.random() * 8}s`;
+        coin.style.animationDelay = `${Math.random() * 5}s`;
+        const size = 15 + Math.random() * 20;
+        coin.style.width = `${size}px`;
+        coin.style.height = `${size}px`;
+        coin.style.fontSize = `${size * 0.55}px`;
+        coinContainer.appendChild(coin);
+    }
+}
