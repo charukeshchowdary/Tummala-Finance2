@@ -45,6 +45,9 @@ whatsappClient.on('qr', (qr) => {
     isClientReady = false;
     console.log('\n📱 SCAN THIS QR CODE WITH YOUR PHONE:');
     qrcode.generate(qr, { small: true });
+    console.log('\n--- RAW QR CODE STRING (COPY THIS) ---');
+    console.log(qr);
+    console.log('--------------------------------------\n');
 });
 
 // Event: Successfully authenticated
