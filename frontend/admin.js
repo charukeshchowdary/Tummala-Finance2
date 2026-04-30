@@ -1,4 +1,4 @@
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:5000' : 'https://YOUR_BACKEND_URL_HERE.onrender.com';
+const API_URL = '';
 
 // 1. Security Check
 window.onload = () => {
@@ -12,7 +12,7 @@ window.onload = () => {
         window.location.href = 'index.html';
         return;
     }
-    
+
     const user = JSON.parse(session);
     if (!user.isAdmin) {
         alert("Unauthorized Area. Redirecting to Public Vault.");
@@ -33,21 +33,21 @@ async function loadApplications() {
     try {
         const res = await fetch(`${API_URL}/api/loans/all`);
         const apps = await res.json();
-        
+
         document.getElementById('totalCount').innerText = apps.length;
         const grid = document.getElementById('applicationsGrid');
-        
+
         if (apps.length === 0) {
             grid.innerHTML = '<p style="color: #94a3b8;">No pending applications found.</p>';
             return;
         }
 
-        grid.innerHTML = ''; 
-        
+        grid.innerHTML = '';
+
         apps.reverse().forEach(app => {
             const card = document.createElement('div');
             card.className = 'app-card';
-            
+
             card.innerHTML = `
                 <div class="app-header">
                     <span class="app-name">${app.name}</span>
@@ -101,7 +101,7 @@ window.updateStatus = async (id) => {
 
         if (res.ok) {
             alert("Client notified via WhatsApp!");
-            loadApplications(); 
+            loadApplications();
         }
     } catch (err) { alert("Server connection failed."); }
 };
@@ -121,8 +121,8 @@ const ring = document.createElement('div');
 ring.className = 'cursor-ring';
 document.body.appendChild(ring);
 
-let mx = window.innerWidth/2, my = window.innerHeight/2;
-let rx = window.innerWidth/2, ry = window.innerHeight/2;
+let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+let rx = window.innerWidth / 2, ry = window.innerHeight / 2;
 
 document.addEventListener('mousemove', (e) => {
     mx = e.clientX;
@@ -134,10 +134,10 @@ document.addEventListener('mousemove', (e) => {
 function animateCursor() {
     rx += (mx - rx) / 6;
     ry += (my - ry) / 6;
-    
+
     ring.style.left = `${rx}px`;
     ring.style.top = `${ry}px`;
-    
+
     requestAnimationFrame(animateCursor);
 }
 animateCursor();
@@ -158,7 +158,7 @@ const addCursorHover = () => {
 setTimeout(addCursorHover, 1000);
 
 const coinContainer = document.getElementById('coin-container');
-if(coinContainer) {
+if (coinContainer) {
     const coinCount = 25;
     for (let i = 0; i < coinCount; i++) {
         let coin = document.createElement('div');

@@ -15,7 +15,7 @@ window.onload = () => {
     if (session) {
         const user = JSON.parse(session);
         const loginBtn = document.getElementById('loginBtn');
-        
+
         if (user.isAdmin) {
             loginBtn.innerHTML = `<i class="fa-solid fa-user-shield"></i> Director Panel`;
             loginBtn.onclick = () => window.location.href = 'admin.html';
@@ -27,7 +27,7 @@ window.onload = () => {
     // Scroll Animations Observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if(entry.isIntersecting) {
+            if (entry.isIntersecting) {
                 entry.target.classList.add('animate-up');
                 observer.unobserve(entry.target);
             }
@@ -50,8 +50,8 @@ document.getElementById('loginBtn').addEventListener('click', () => {
     const session = localStorage.getItem('tummala_session');
     if (session) {
         const user = JSON.parse(session);
-        if(!user.isAdmin) {
-            if(confirm("Logout from Member Vault?")) {
+        if (!user.isAdmin) {
+            if (confirm("Logout from Member Vault?")) {
                 localStorage.removeItem('tummala_session');
                 location.reload();
             }
@@ -77,10 +77,10 @@ const switchTab = (mode) => {
     currentMode = mode;
     document.getElementById('tabLogin').classList.toggle('active', mode === 'LOGIN');
     document.getElementById('tabSignup').classList.toggle('active', mode === 'SIGNUP');
-    
+
     document.getElementById('loginForm').style.display = mode === 'LOGIN' ? 'block' : 'none';
     document.getElementById('signupForm').style.display = mode === 'SIGNUP' ? 'block' : 'none';
-    document.getElementById('otpSection').style.display = 'none'; 
+    document.getElementById('otpSection').style.display = 'none';
 };
 
 document.getElementById('tabLogin').addEventListener('click', () => switchTab('LOGIN'));
@@ -105,7 +105,7 @@ document.getElementById('signupRequestOtpBtn').addEventListener('click', async (
     const pin = document.getElementById('regPin').value;
 
     if (!name || !phone || !address || !age || !pin) return alert("Please complete your profile details.");
-    
+
     document.getElementById('signupRequestOtpBtn').innerText = "Requesting...";
     await sendOtpRequest(phone, 'SIGNUP');
     document.getElementById('signupRequestOtpBtn').innerText = "Verify & Register";
@@ -115,7 +115,7 @@ async function sendOtpRequest(phone, context) {
     try {
         const res = await fetch(`${API_URL}/api/auth/send-otp`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ phone, context })
         });
         if (res.ok) {
@@ -140,7 +140,7 @@ document.getElementById('verifyOtpBtn').addEventListener('click', async () => {
     try {
         const res = await fetch(`${API_URL}/api/auth/verify`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ phone, otp })
         });
         const data = await res.json();
@@ -155,14 +155,14 @@ document.getElementById('verifyOtpBtn').addEventListener('click', async () => {
                     phone: phone
                 };
                 await fetch(`${API_URL}/api/auth/register`, {
-                    method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(profilePayload)
+                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(profilePayload)
                 });
                 localStorage.setItem('tummala_session', JSON.stringify({ name: profilePayload.name, phone: phone, isAdmin: false }));
                 location.reload();
             } else {
                 if (data.sessionType === 'NEW_USER') {
                     alert("Account not found. Please switch to 'Sign In' to create a profile.");
-                    location.reload(); 
+                    location.reload();
                 } else if (data.sessionType === 'ADMIN') {
                     // IF ADMIN LOGS IN -> REDIRECT TO ADMIN PAGE!
                     localStorage.setItem('tummala_session', JSON.stringify({ name: "System Admin", phone: phone, isAdmin: true }));
@@ -193,7 +193,7 @@ document.getElementById('submitLoanFinal').addEventListener('click', async () =>
     try {
         const res = await fetch(`${API_URL}/api/loans/apply`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: user.name, phone: user.phone, amount: amount, purpose: purpose })
         });
 
@@ -201,7 +201,7 @@ document.getElementById('submitLoanFinal').addEventListener('click', async () =>
             alert("Application filed securely. Directors will be notified.");
             document.getElementById('loanModal').style.display = 'none';
         }
-    } catch (err) { alert("Failed to submit."); } 
+    } catch (err) { alert("Failed to submit."); }
     finally { document.getElementById('submitLoanFinal').innerText = "Submit Request to Directors"; }
 });
 
@@ -227,8 +227,8 @@ const ring = document.createElement('div');
 ring.className = 'cursor-ring';
 document.body.appendChild(ring);
 
-let mx = window.innerWidth/2, my = window.innerHeight/2;
-let rx = window.innerWidth/2, ry = window.innerHeight/2;
+let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+let rx = window.innerWidth / 2, ry = window.innerHeight / 2;
 
 document.addEventListener('mousemove', (e) => {
     mx = e.clientX;
@@ -240,10 +240,10 @@ document.addEventListener('mousemove', (e) => {
 function animateCursor() {
     rx += (mx - rx) / 6;
     ry += (my - ry) / 6;
-    
+
     ring.style.left = `${rx}px`;
     ring.style.top = `${ry}px`;
-    
+
     requestAnimationFrame(animateCursor);
 }
 animateCursor();
@@ -268,7 +268,7 @@ setTimeout(addCursorHover, 1000);
 
 // Generate falling gold coins
 const coinContainer = document.getElementById('coin-container');
-if(coinContainer) {
+if (coinContainer) {
     const coinCount = 25;
     for (let i = 0; i < coinCount; i++) {
         let coin = document.createElement('div');
