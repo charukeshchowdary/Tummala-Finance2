@@ -20,6 +20,7 @@ const whatsappClient = new Client({
     puppeteer: {
         headless: true,
         handleSIGINT: false,
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || null,
         // FIX: Ignore SSL certificate errors to prevent ERR_CERT_AUTHORITY_INVALID
         ignoreHTTPSErrors: true, 
         args: [
