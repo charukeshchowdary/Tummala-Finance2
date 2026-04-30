@@ -10,10 +10,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
 
+let isClientReady = false;
+let latestQR = "";
+
 // -----------------------------------------
 // 1. WHATSAPP CONNECTION SETUP
 // -----------------------------------------
-let isClientReady = false;
 
 const whatsappClient = new Client({
     authStrategy: new LocalAuth(),
@@ -43,6 +45,7 @@ const whatsappClient = new Client({
 // Event: QR Code generation
 whatsappClient.on('qr', (qr) => {
     isClientReady = false;
+    latestQR = qr;
     console.log('\n📱 SCAN THIS QR CODE WITH YOUR PHONE:');
     qrcode.generate(qr, { small: true });
     console.log('\n--- RAW QR CODE STRING (COPY THIS) ---');
