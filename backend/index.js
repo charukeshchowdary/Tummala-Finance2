@@ -31,6 +31,8 @@ const whatsappClient = new Client({
             '--no-first-run',
             '--no-zygote',
             '--disable-gpu',
+            '--single-process',
+            '--disable-software-rasterizer',
             '--ignore-certificate-errors',
             '--ignore-certificate-errors-spki-list',
         ],
