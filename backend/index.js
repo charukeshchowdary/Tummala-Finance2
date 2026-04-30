@@ -3,11 +3,12 @@ const cors = require('cors');
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const sqlite3 = require('sqlite3').verbose();
+const path = require('path');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // -----------------------------------------
 // 1. WHATSAPP CONNECTION SETUP
